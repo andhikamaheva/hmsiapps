@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: hmsiapp
+        psr4_prefix: hmsiapp
+        src_path: hmsiapp
