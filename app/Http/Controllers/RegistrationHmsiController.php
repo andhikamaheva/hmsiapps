@@ -1,6 +1,6 @@
 <?php namespace hmsiapp\Http\Controllers;
 
-use hmsiapp\Http\Requests\EventMahasiswa;
+use hmsiapp\Http\Requests\MahasiswaRequest;
 use hmsiapp\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use hmsiapp\Models\Mahasiswa;

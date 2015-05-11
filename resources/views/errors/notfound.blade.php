@@ -2,7 +2,7 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Not found | SIMASI 2015 </title>
+  <title>Halaman Tidak Ditemukan HMSI Apps</title>
   <meta name="description" content="IDMS | Information and Data Management System" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
@@ -47,7 +47,7 @@
   <footer id="footer">
     <div class="text-center padder clearfix animated fadeInUpBig">
       <p>
-        <small>System Information HIMASI<br>
+        <small>HMSI Apps<br>
         Save The Code &copy; 2015</small>
       </p>
     </div>

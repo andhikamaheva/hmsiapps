@@ -35,6 +35,7 @@ a:focus {
 .badge {
   background-color: #bebebe;
 }
+
 .badge.up {
   position: relative;
   top: -10px;

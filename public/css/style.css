@@ -3606,7 +3606,7 @@ table.sliders tr td {
 .stepy-titles li.current-step div {
     color: #fff;
     cursor: auto;
-    background: #A9D86E;
+    background: #ED5B5B;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     width: 100px;
@@ -4645,5 +4645,5 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .site-min-height {
-    min-height: 900px;
+    min-height: 550px;
 }

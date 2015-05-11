@@ -49,7 +49,6 @@ angular.module('admin').controller('agendacreate', function($scope, $http, $filt
         $scope.alerts.splice(index, 1);
     };
     $scope.mulai = false;
-    $scope.selesai = false;
     $scope.dateOptions = {
         formatYear: 'yy',
         startingDay: 1
