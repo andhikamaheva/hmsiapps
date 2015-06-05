@@ -112,169 +112,173 @@
 
                           </div>
                           <hr>
-                          <form class="form-horizontal" id="default" ng-submit="submit()">
+                          <form class="form-horizontal" name="registration" id="default" ng-submit="submit()">
                               <fieldset title="Step1" class="step" id="default-step-0">
                                   <legend> </legend>
 
                                   <div class="form-group" >
                                       <label class="col-lg-2 control-label">NIM</label>
                                       <div class="col-lg-5">
-                                        <input type="text" value="" ng-model="data.nim" class="form-control" placeholder="Masukkan 11 digit NIM" reqiured>
+                                        <input type="text" value="" ng-model="data.nim" class="form-control" ng-minlength="11" ng-maxlength="11" name="NIM" placeholder="Masukkan 11 digit NIM" reqiured>
+                                        <span class="error" ng-show="registration.NIM.$error.minlength" style="color:red">
+                                          NIM terlalu pendek</span>
+                                          <span class="error" ng-show="registration.NIM.$error.maxlength" style="color:red">
+                                              NIM terlalu panjang</span>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-lg-2 control-label">Nama</label>
+                                          <div class="col-lg-8">
+                                              <input type="text" ng-model="data.mhs_nama" class="form-control" placeholder="Nama Lengkap">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-lg-2 control-label">Jenis Kelamin</label>
+                                        <div class="col-lg-10">
+                                            <div class="radios">
+                                             <label class="label_radio" for="laki">
+                                                 <input name="laki" id="laki" value="L" type="radio"  ng-model="data.mhs_gender"> Laki - Laki
+                                             </label>
+                                             <label class="label_radio" for="perempuan">
+                                                 <input name="perempuan" id="perempuan" value="P" type="radio" ng-model="data.mhs_gender"> Perempuan
+                                             </label>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="control-label col-lg-2">Tanggal Lahir</label>
+                                     <div class="col-md-3 col-xs-5">
+                                        <div  class="input-append date">
+                                            <input type="text"
+                                            class="form-control"
+                                            placeholder="yyyy-MM-dd"
+                                            datepicker-popup="yyyy-MM-dd"
+                                            ng-model="data.mhs_ttl"
+                                            is-open="mulai"
+                                            datepicker-options="dateOptions"
+                                            ng-required="true"
+                                            close-text="Close"
+                                            ng-click="mulai = true"
+                                            name="mhs_ttl"
+                                            size ="16"
+                                            required
+                                            date-validator readonly
+                                            />
+                                            <span class="input-group-btn add-on">
+                                                <button class="btn btn-danger" type="button" ng-click="open($event)" ><i class="icon-calendar" ></i></button>
+                                            </span>
+                                        </div>
+                                        <span class="help-block">Pilih Tanggal</span>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">Nama</label>
-                                  <div class="col-lg-8">
-                                      <input type="text" ng-model="data.mhs_nama" class="form-control" placeholder="Nama Lengkap">
+
+                            </fieldset>
+                            <fieldset title="Step 2" class="step" id="default-step-1" >
+                              <legend> </legend>
+                              <div class="form-group">
+                                  <label class="col-lg-2 control-label">Phone</label>
+                                  <div class="col-lg-6">
+                                      <input type="text" ng-model="data.mhs_phone" class="form-control" placeholder="Nomor Telpon">
                                   </div>
                               </div>
                               <div class="form-group">
-                                <label class="col-lg-2 control-label">Jenis Kelamin</label>
-                                <div class="col-lg-10">
-                                    <div class="radios">
-                                       <label class="label_radio" for="laki">
-                                           <input name="laki" id="laki" value="$2y$10$Icy16T3Y6nH/mxEh3fR/ze3C71fZQQFScbet8JzL6IdBBexdIgCR." type="radio"  ng-model="data.mhs_gender"> Laki - Laki
-                                       </label>
-                                       <label class="label_radio" for="perempuan">
-                                           <input name="perempuan" id="perempuan" value="$2y$10$g1uGRDY4lXfVvFsbVRfO2epOO8W5xN0w6i0GA4RyjZEFEmPC5nyVK" type="radio" ng-model="data.mhs_gender"> Perempuan
-                                       </label>
-                                   </div>
-                               </div>
-                           </div>
-                           <div class="form-group">
-                           <label class="control-label col-lg-2">Tanggal Lahir</label>
-                            <div class="col-md-3 col-xs-5">
-                                <div  class="input-append date">
-                                    <input type="text"
-                                    class="form-control"
-                                    placeholder="yyyy-MM-dd"
-                                    datepicker-popup="yyyy-MM-dd"
-                                    ng-model="data.mhs_ttl"
-                                    is-open="mulai"
-                                    datepicker-options="dateOptions"
-                                    ng-required="true"
-                                    close-text="Close"
-                                    ng-click="mulai = true"
-                                    name="mhs_ttl"
-                                    size ="16"
-                                    required
-                                    date-validator readonly
-                                    />
-                                    <span class="input-group-btn add-on">
-                                        <button class="btn btn-danger" type="button" ng-click="open($event)" ><i class="icon-calendar" ></i></button>
+                                  <label class="col-lg-2 control-label">Email</label>
+                                  <div class="col-lg-7">
+                                      <input type="email" ng-model="data.mhs_email" class="form-control" placeholder="Alamat Email">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-lg-2 control-label">Address</label>
+                                  <div class="col-lg-10">
+                                      <textarea class="form-control" ng-model="data.mhs_alamat" cols="60" rows="5" placeholder="Alamat Rumah"></textarea>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="col-lg-2 control-label">Password</label>
+                                  <div class="col-lg-7">
+                                      <input type="password" ng-model="data.mhs_password" class="form-control" placeholder="Password Akun">
+                                  </div>
+                              </div>
+
+
+
+                          </fieldset>
+                          <fieldset title="Step 3" class="step" id="default-step-2" >
+                              <legend> </legend>
+                              <alert ng-repeat="alert in alerts" type="<%alert.type%>" close="closeAlert($index)"><% alert.msg %></alert>
+                              <div class="form-group last">
+                                <label class="control-label col-md-2">Foto Profil</label>
+                                <div class="col-md-9">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="img/no_image.gif" alt="" />
+                                        </div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
+                                        </div>
+                                        <div>
+                                            <span class="btn btn-white btn-file">
+                                                <span class="fileupload-new"><i class="icon-paper-clip"></i> Select image</span>
+                                                <span class="fileupload-exists"><i class="icon-undo"></i> Change</span>
+                                                <input type="file" class="default" ng-model="data.mhs_photo" />
+                                            </span>
+                                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="icon-trash"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                    <span class="label label-danger">NOTE!</span>
+                                    <span>
+                                        Besar foto tidak lebih dari 500Kb .
                                     </span>
                                 </div>
-                                <span class="help-block">Pilih Tanggal</span>
                             </div>
-                        </div>
-
-                    </fieldset>
-                    <fieldset title="Step 2" class="step" id="default-step-1" >
-                      <legend> </legend>
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label">Phone</label>
-                          <div class="col-lg-6">
-                              <input type="text" ng-model="data.mhs_phone" class="form-control" placeholder="Nomor Telpon">
+                            <div class="form-group">
+                              <label class="col-lg-2 control-label">NIM</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.nim"></p>
+                              </div>
                           </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label">Email</label>
-                          <div class="col-lg-7">
-                              <input type="email" ng-model="data.mhs_email" class="form-control" placeholder="Alamat Email">
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Nama</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_nama"></p>
+                              </div>
                           </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label">Address</label>
-                          <div class="col-lg-10">
-                              <textarea class="form-control" ng-model="data.mhs_alamat" cols="60" rows="5" placeholder="Alamat Rumah"></textarea>
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Jenis Kelamin</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_gender"></p>
+                              </div>
                           </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label">Password</label>
-                          <div class="col-lg-7">
-                              <input type="password" ng-model="data.mhs_password" class="form-control" placeholder="Password Akun">
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Tanggal Lahir</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_ttl | date:'MM/dd/yyyy'"></p>
+                              </div>
                           </div>
-                      </div>
-
-
-
-                  </fieldset>
-                  <fieldset title="Step 3" class="step" id="default-step-2" >
-                      <legend> </legend>
-                      <alert ng-repeat="alert in alerts" type="<%alert.type%>" close="closeAlert($index)"><% alert.msg %></alert>
-                      <div class="form-group last">
-                        <label class="control-label col-md-2">Foto Profil</label>
-                        <div class="col-md-9">
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="img/no_image.gif" alt="" />
-                                </div>
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
-                                </div>
-                                <div>
-                                    <span class="btn btn-white btn-file">
-                                        <span class="fileupload-new"><i class="icon-paper-clip"></i> Select image</span>
-                                        <span class="fileupload-exists"><i class="icon-undo"></i> Change</span>
-                                        <input type="file" class="default" ng-model="data.mhs_photo" />
-                                    </span>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="icon-trash"></i> Remove</a>
-                                </div>
-                            </div>
-                            <span class="label label-danger">NOTE!</span>
-                            <span>
-                                Besar foto tidak lebih dari 500Kb .
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-lg-2 control-label">NIM</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.nim"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Nama</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_nama"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Jenis Kelamin</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_gender"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Tanggal Lahir</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_ttl | date:'MM/dd/yyyy'"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Alamat</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_alamat"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Email</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_email"></p>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Phone</label>
-                      <div class="col-lg-10">
-                          <p class="form-control-static" ng-bind="data.mhs_phone"></p>
-                      </div>
-                  </div>
-              </fieldset>
-              <button type="submit" ng-click="selesai = false"class="finish btn btn-danger">Finish</button>
-          </form>
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Alamat</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_alamat"></p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Email</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_email"></p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 control-label">Phone</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static" ng-bind="data.mhs_phone"></p>
+                              </div>
+                          </div>
+                      </fieldset>
+                      <button type="submit" ng-click="selesai = false"class="finish btn btn-danger">Finish</button>
+                  </form>
+              </div>
+          </section>
       </div>
-  </section>
-</div>
-</div>
+  </div>
 
 </section>
 

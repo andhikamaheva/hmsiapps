@@ -16,12 +16,13 @@
 Route::get('/', ['middleware' => 'guest', function() {
 return view('login.login');
 }]);
+
 Route::post('/', 'LoginController@auth');
 
 //Route::get('registration', ['middleware' => 'guest','uses' => 'RegistrationHmsiController@index']);
 //Route::post('registration', 'RegistrationHmsiController@store');
     Route::resource('registration', 'RegistrationHmsiController');
-  
+
 
 //Routing Dashboard Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
